@@ -6,8 +6,14 @@ $app = new Silex\Application();
 
 $app['debug'] = true;
 
-$app->get('/hello/{name}', function ($name) use ($app) {
-return 'Hello '.$app->escape($name);
+
+// On initialise TWIG en lui indiquant le dossier ou se trouve les templates.
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__.'/../templates',
+));
+// ACCUEIL
+$app->get('/', function () use ($app) {
+    return $app['twig']->render('pages/accueil.html.twig');
 });
 
 $app->run();

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    
+    <meta charset="utf-8">
+    <title>LP - Cours Symfony2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="css/pure-min.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+<body>
+
+<div class="pure-g">
+    
+    <div class="pure-u-1-5">
+        
+        <div class="pure-menu custom-restricted-width">
+            <span class="pure-menu-heading">Menu</span>
+        
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Item 1</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Item 2</a></li>
+                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Item 3</a></li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <div class="pure-u-4-5">
+        
+        {% block content %}{% endblock %}
+        
+    </div>
+    
+</div>
+
+</body>
+</html>
