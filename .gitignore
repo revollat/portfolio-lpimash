@@ -1,0 +1,16 @@
+composer.phar
+web/bundles/
+web/js/
+web/css/
+app/cache/*
+app/logs/*
+web/media
+web/assetic
+build/
+vendor/
+vendor
+app/config/parameters.yml
+.vagrant/
+app/bootstrap.php.cache
+.idea/
+.c9/
