@@ -2,7 +2,11 @@
     "require": {
         "silex/silex": "1.2.*@dev",
         "twig/twig": "~1.18",
-        "symfony/twig-bridge": "~2.6"
+        "symfony/twig-bridge": "~2.6",
+        "doctrine/dbal": "~2.2"
+    },
+    "autoload": {
+        "psr-0": { "Lpimash\\": "src/"}
     }
 
 }

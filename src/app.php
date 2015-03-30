@@ -28,3 +28,23 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __
 
 // Service URL generator
 $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
+
+// Doctrine 
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'driver' => 'pdo_mysql',
+        'host' => 'o_revollat-cours-1389601', // à remplacer : SHOW VARIABLES WHERE Variable_name = 'hostname';
+        'dbname' => 'c9',
+        'port'     => 3306,
+        'user' => 'o_revollat', // à remplacer
+        'charset' => 'utf8'
+    ),
+));
+
+// Services perso. Cf. http://silex.sensiolabs.org/doc/services.html
+$app['menu'] = function ($app) {
+    return new Lpimash\Model\Menu($app['db']);
+};
+
+// Ajout du menu dispo globalement dans tous les templates Twig
+$app["twig"]->addGlobal('menu' , $app['menu']->getItems());
