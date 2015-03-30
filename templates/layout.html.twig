@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
     <link rel="stylesheet" href="css/pure-min.css">
-    <link rel="stylesheet" href="css/main.css">
 
 </head>
 <body>
@@ -20,9 +19,8 @@
             <span class="pure-menu-heading">Menu</span>
         
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Item 1</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Item 2</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Item 3</a></li>
+                <li class="pure-menu-item"><a href="{{ path('ajax', {valeur: 'foo'}) }}" class="ajax pure-menu-link">Appel Ajax 1</a></li>
+                <li class="pure-menu-item"><a href="{{ path('ajax', {valeur: 'bar'}) }}" class="ajax pure-menu-link">Appel Ajax 2</a></li>
             </ul>
         </div>
         
@@ -37,4 +35,14 @@
 </div>
 
 </body>
+
+<script src="js/jquery-2.1.3.min.js"></script>
+
+<script>
+    $( ".ajax" ).click(function( event ) {
+      event.preventDefault();
+      $.getJSON($(this).attr('href'));
+    });
+</script>
+
 </html>
