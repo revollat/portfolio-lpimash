@@ -23,12 +23,28 @@ $app->get('/ajax/{valeur}', function ($valeur) use ($app) {
     
     $tableau = [ // Syntaxe depuis PHP 5.4
         "foo" => [
-            "div1" => "Lorem ipsum dolor sit amet.",
-            "div2" => "Donec mattis neque at leo."
+            [
+                "titre" => "Titre1",
+                "contenu" => "contenu 1"
+            ],
+            [
+                "titre" => "Titre 2",
+                "contenu" => "contenu 2"
+            ],
+            [
+                "titre" => "Titre 3",
+                "contenu" => "contenu 3"
+            ]
         ],
         "bar" => [
-            "div1" => "Praesent metus tellus, egestas id.",
-            "div2" => "Nullam volutpat, nisi pretium posuere."
+            [
+                "titre" => "Titre 4",
+                "contenu" => "contenu 4"
+            ],
+            [
+                "titre" => "Tire 5",
+                "contenu" => "Contenu 5"
+            ]
         ]
     ];
     
