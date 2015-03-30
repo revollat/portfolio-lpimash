@@ -41,6 +41,16 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     ),
 ));
 
+// Formulaire
+$app->register(new Silex\Provider\FormServiceProvider());
+
+// Validation
+$app->register(new Silex\Provider\ValidatorServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider());
+
+// Session
+$app->register(new Silex\Provider\SessionServiceProvider());
+
 // Services perso. Cf. http://silex.sensiolabs.org/doc/services.html
 $app['menu'] = function ($app) {
     return new Lpimash\Model\Menu($app['db']);
