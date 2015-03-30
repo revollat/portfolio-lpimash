@@ -32,9 +32,7 @@ $app->get('/ajax/{valeur}', function ($valeur) use ($app) {
         ]
     ];
     
-    $retour = isset($tableau[$valeur]) ? $app->json($tableau[$valeur]) : $app->json(array(), 404);
-    
-    return $retour;
+    return $app->json($tableau[$valeur]);
     
 })
 ->bind('ajax') // cf. doc routing :  http://silex.sensiolabs.org/doc/usage.html#routing
