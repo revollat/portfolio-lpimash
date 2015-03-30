@@ -44,6 +44,14 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
 // Formulaire
 $app->register(new Silex\Provider\FormServiceProvider());
 
+/*
+$app['form.types'] = $app->share($app->extend('form.types', function ($types) use ($app) {
+    $types['contact'] = new Lpimash\Form\Contact($app);
+    return $types;
+}));
+*/
+
+
 // Validation
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider());

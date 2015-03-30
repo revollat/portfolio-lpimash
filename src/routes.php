@@ -33,30 +33,13 @@ $app->get('/mon-cv', function () use ($app) {
 // Contact
 $app->match('/me-contacter', function (Request $request) use ($app) {
     
-    $form = $app['form.factory']->createBuilder()
-        ->add('email', 'email', array(
-            'constraints' => array(
-                new Assert\NotBlank(),
-                new Assert\Email()
-            ),
-        ))
-        ->add('sujet', 'text', array(
-            'constraints' => array(
-                new Assert\NotBlank(),
-            ),
-        ))
-        ->add('message', 'textarea', array(
-            'constraints' => array(
-                new Assert\NotBlank(),
-            ),
-        ))
-        ->add('valider', 'submit')
-        ->getForm();
-        
+    $form = $app['form.factory']->createBuilder( new Lpimash\Form\Contact())->getForm();
+
     if ($request->isMethod('POST')) {
         $form->bind($request);
-        if ($form->isValid()) { // Envoi du mail avec swiftmailer cf. https://github.com/revollat/mon_framework/blob/silex-6/web/front.php
-            $app['session']->getFlashBag()->add('message', 'Votre message à bien été envoyé !!');
+        if ($form->isValid()) {
+            $form_data = $form->getData();
+            $app['session']->getFlashBag()->add('message', 'Votre message a bien été envoyé. Vous serez recontacté sur ' . $form_data['email']);
             return $app->redirect('/');
         }
     }

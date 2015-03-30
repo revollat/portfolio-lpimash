@@ -27,7 +27,7 @@
     <div class="pure-u-4-5">
         
         {% for message in app.session.getFlashBag.get('message') %}
-            {{ message }}
+            <h2>{{ message }}</h2>
         {% endfor %}
     
         {% block contenu %}{% endblock %}
