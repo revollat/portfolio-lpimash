@@ -28,9 +28,17 @@ class Contact extends AbstractType
                     ))
                 )
             ))
-            ->add('sujet', 'text', array(
+            ->add('sujet', 'choice', array(
+                'choices'   => array(
+                    'S1' => 'à propos du design du site',
+                    'S2' => 'proposition de travail',
+                    'S3' => 'me passer le bonjour !',
+                ),
+                'empty_value' => 'Choisissez ...',
                 'constraints' => array(
-                    new Assert\NotBlank(),
+                    new Assert\NotBlank(array(
+                        'message' => 'Merci de choisir un sujet'
+                    )),
                 ),
             ))
             ->add('message', 'textarea', array(

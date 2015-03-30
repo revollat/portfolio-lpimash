@@ -20,6 +20,9 @@
 
 $app = new Silex\Application();
 
+// Langue
+$app['locale'] = 'fr';
+
 // Pour avoir des information de debuggage de l'application
 $app['debug'] = true;
 

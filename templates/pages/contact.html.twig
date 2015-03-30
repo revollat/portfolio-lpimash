@@ -1,6 +1,9 @@
 {% extends "layout.html.twig" %}
 
+{% form_theme form 'theme/lpimash_form_theme.html.twig' %} {# copié depuis /vendor/symfony/twig-bridge/Symfony/Bridge/Twig/Resources/views/Form/form_div_layout.html.twig #}
+{# Doc nommage fragment de templates http://symfony.com/fr/doc/current/book/forms.html#form-template-blocks #}
+
 {% block contenu %}
     <h1>contact</h1>
-    {{ form(form, {'attr': {'novalidate': 'novalidate'}} ) }}
+    {{ form(form, {'attr': {'novalidate': 'novalidate', 'class': 'pure-form pure-form-aligned'}} ) }}
 {% endblock %}
